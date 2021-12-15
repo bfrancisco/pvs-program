@@ -34,9 +34,9 @@ if __name__ == "__main__":
     # on button click
     bttn = st.button('Calculate results')
 
-    if bttn and file is None:
-        st.error("Please upload a csv file.")
-    elif bttn:
+    if bttn:
+        if file is None:
+            file = 'sample_data.csv'
         try:
             # read csv file as panda DataFrame
             csvfile = pd.read_csv(file)
