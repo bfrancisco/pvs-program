@@ -18,10 +18,6 @@ if __name__ == "__main__":
     st.set_page_config(
         page_title="PVS Program",
         page_icon=progvarlogobg,
-        menu_items={
-            'About': '''A program made for automation of electoral process in Ateneo Senior High School. 
-                        Made by ASHS ProgVar in partnership with ASHS ComElec.'''
-        }
     )
 
     # title
