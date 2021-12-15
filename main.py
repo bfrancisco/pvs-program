@@ -33,7 +33,8 @@ if __name__ == "__main__":
 
     # on button click
     bttn = st.button('Calculate results')
-
+    st.caption("A sample csv file will be processed if no file was uploaded.")
+    
     if bttn:
         if file is None:
             file = 'sample_data.csv'
