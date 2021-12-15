@@ -21,7 +21,7 @@ if __name__ == "__main__":
     )
 
     # title
-    st.image(progvarlogo, width=90)
+    st.image(progvarlogobg, width=90)
     st.title("Preferential Voting System Program")
     st.caption("© ASHS ProgVar '21-'22")
 
