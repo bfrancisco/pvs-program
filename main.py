@@ -82,7 +82,7 @@ if __name__ == "__main__":
 
             with open("election_graphs.zip", "rb") as fp:
                 btn = st.download_button(
-                    label="Download election graphs",
+                    label="Download graphs",
                     data=fp,
                     file_name="election_graphs.zip",
                     mime="application/zip"
