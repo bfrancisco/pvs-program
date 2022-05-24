@@ -26,7 +26,7 @@ if __name__ == "__main__":
     with col1:
         st.image(progvarlogobg, width=90)
     with col2:
-        st.image(comeleclogo, width=125)
+        st.image(comeleclogo, width=110)
     st.title("Preferential Voting System Program")
     st.caption("© ASHS ProgVar '21-'22 in partnership with ASHS ComElec '21-'22")
 
