@@ -28,7 +28,7 @@ if __name__ == "__main__":
     with col2:
         st.image(comeleclogo, width=110)
     st.title("Preferential Voting System Program")
-    st.caption("© ASHS ProgVar '21-'22")
+    st.caption("© ASHS ProgVar '21-'22 in partnership with ASHS ComElec '21-'22")
 
     # upload csv file
     file = st.file_uploader("Upload a correctly formatted csv file.", type={"csv"})
