@@ -22,11 +22,11 @@ if __name__ == "__main__":
     )
 
     # title
-    col1, col2 = st.columns(2)
+    col1, col2 = st.columns([1, 6])
     with col1:
         st.image(progvarlogobg, width=90)
     with col2:
-        st.image(comeleclogo, width=90)
+        st.image(comeleclogo, width=110)
     st.title("Preferential Voting System Program")
     st.caption("© ASHS ProgVar '21-'22")
 
