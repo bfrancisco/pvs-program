@@ -22,7 +22,7 @@ if __name__ == "__main__":
     )
 
     # title
-    col1, col2 = st.columns(3)
+    col1, col2 = st.columns(2)
     with col1:
         st.image(progvarlogobg, width=90)
     with col2:
