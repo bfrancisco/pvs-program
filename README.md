@@ -1,4 +1,3 @@
-# pvs-program
+# Description
 Automated preferential voting system program using streamlit. 
-
-# to do: update readme file
+This project was made by Ateneo Senior High School Programming Varsity (ASHS ProgVar) in partership with ASHS ComElec. Its use is for Ateneo Senior High's student elections which follows the preferential voting system (PVS).
