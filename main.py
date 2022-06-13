@@ -1,12 +1,22 @@
-# D:\AteneoSHS12\ASHS ComElec\PVS Program 5.0.1
-# Run Anaconda Environment
-# streamlit run main.py
+# Running main.py on local computer
+#   Run Anaconda Environment
+#   Go to main.py's directory
+#   type "streamlit run main.py" on anaconda environment
 
+# streamlit, for user interface of web app
 import streamlit as st
+
+# for csv processing
 import pandas as pd
+
+# for img processing
 from PIL import Image
+
+# for directory handling
 import os
 import shutil
+
+# other .py files
 import process_election
 import process_graphs
 
@@ -34,8 +44,14 @@ if __name__ == "__main__":
     file = st.file_uploader("Upload a correctly formatted csv file.", type={"csv"})
 
     # error code. utilized when 'except' occurs
+    
     error_code = 4
-
+    #   error_code 4: Problem is at process_election.py
+    #   error_code 3: Problem is at process_graph.py, specifically at make_figures function
+    #   error_code 2: Problem is at process_graph.py, specifically at show_figures function
+    #   error_code 1: Problem is at download buttons of streamlit
+    #   error_code 0: means everything is good
+    
     # on button click
     bttn = st.button('Calculate results')
     st.caption("A sample csv file will be processed if no file was uploaded.")
