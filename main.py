@@ -28,7 +28,7 @@ if __name__ == "__main__":
     progvarlogobg = Image.open("progvar_logo_wbg.png")
     comeleclogo = Image.open("comelec_logo.png")
     st.set_page_config(
-        page_title="PVS Program",
+        page_title="PPVS Program",
         page_icon=progvarlogobg,
     )
 
@@ -38,8 +38,8 @@ if __name__ == "__main__":
         st.image(progvarlogobg, width=90)
     with col2:
         st.image(comeleclogo, width=110)
-    st.title("Preferential Voting System Program")
-    st.caption("© ASHS ProgVar '21-'22 in partnership with ASHS ComElec '21-'22")
+    st.title("Plurality-Preferential Voting System Program")
+    st.caption("© ASHS ProgVar in partnership with ASHS ComElec")
 
     # upload csv file
     file = st.file_uploader("Upload a correctly formatted csv file.", type={"csv"})
@@ -101,10 +101,12 @@ if __name__ == "__main__":
             pbar.progress(70)
 
             # show figures
-            st.header("Election rounds")
+            
             if voting_system == "Preferential Voting System":
+                st.header("Election result")
                 process_graphs.show_figures(figures, titles)
             elif voting_system == "Plurality Voting System":
+                st.header("Election rounds")
                 plurality.plur_show_figure(plur_figs)
             error_code -= 1
             pbar.progress(80)
