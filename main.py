@@ -19,6 +19,7 @@ import shutil
 # other .py files
 import process_election
 import process_graphs
+import plurality
 
 if __name__ == "__main__":
     
@@ -43,8 +44,12 @@ if __name__ == "__main__":
     # upload csv file
     file = st.file_uploader("Upload a correctly formatted csv file.", type={"csv"})
 
+    # election system selector
+    voting_system = st.selectbox(
+     'Select voting system',
+     ('Plurality Voting System', 'Preferential Voting System'))
+
     # error code. utilized when 'except' occurs
-    
     error_code = 4
     #   error_code 4: Problem is at process_election.py
     #   error_code 3: Problem is at process_graph.py, specifically at make_figures function
@@ -58,7 +63,10 @@ if __name__ == "__main__":
     
     if bttn:
         if file is None:
-            file = 'sample_data.csv'
+            if voting_system == "Preferential Voting System":
+                file = 'sample_data.csv'
+            elif voting_system == "Plurality Voting System":
+                file = 'sample_data_plurality.csv'
         try:
             # read csv file as panda DataFrame
             csvfile = pd.read_csv(file)
@@ -73,20 +81,31 @@ if __name__ == "__main__":
                 os.makedirs(final_directory)
 
             # calculate results
-            majority_c, voter_c, log, graph_data, winner = process_election.calc_winner(csvfile)
-            error_code -= 1
-            figures, titles = process_graphs.make_figures(graph_data, majority_c, voter_c)
-            error_code -= 1
+            if voting_system == "Preferential Voting System":
+                majority_c, voter_c, log, graph_data, winner = process_election.calc_winner(csvfile)
+                error_code -= 1
+                figures, titles = process_graphs.make_figures(graph_data, majority_c, voter_c)
+                error_code -= 1
+            elif voting_system == "Plurality Voting System":
+                winner, winning_votes, plur_figs, log = plurality.plurality(csvfile)
+                error_code -= 2
+            
             pbar.progress(60)
 
             # list of ballots
-            st.header("List of ballots")
+            if voting_system == "Preferential Voting System":
+                st.header("List of ballots")
+            elif voting_system == "Plurality Voting System":
+                st.header("List of votes")
             st.write(csvfile)
             pbar.progress(70)
 
             # show figures
             st.header("Election rounds")
-            process_graphs.show_figures(figures, titles)
+            if voting_system == "Preferential Voting System":
+                process_graphs.show_figures(figures, titles)
+            elif voting_system == "Plurality Voting System":
+                plurality.plur_show_figure(plur_figs)
             error_code -= 1
             pbar.progress(80)
 
