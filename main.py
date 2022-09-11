@@ -25,7 +25,7 @@ if __name__ == "__main__":
     
     # page configuration
     progvarlogo = Image.open("progvar_logo.png")
-    progvarlogobg = Image.open("progvar_logo_wbg.png")
+    progvarlogobg = Image.open("progvar_logo_22-23_wbg.png")
     comeleclogo = Image.open("comelec_logo.png")
     st.set_page_config(
         page_title="PPVS Program",
