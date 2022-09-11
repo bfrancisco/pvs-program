@@ -24,18 +24,18 @@ import plurality
 if __name__ == "__main__":
     
     # page configuration
-    progvarlogo = Image.open("progvar_logo.png")
-    progvarlogobg = Image.open("progvar_logo_22-23_wbg.png")
+    progvarlogo = Image.open("progvar_logo_22-23.png")
+    progvarlogo_wbg = Image.open("progvar_logo_22-23_wbg.png")
     comeleclogo = Image.open("comelec_logo.png")
     st.set_page_config(
         page_title="PPVS Program",
-        page_icon=progvarlogobg,
+        page_icon=progvarlogo_wbg,
     )
 
     # title
     col1, col2 = st.columns([1, 6])
     with col1:
-        st.image(progvarlogobg, width=90)
+        st.image(progvarlogo, width=110)
     with col2:
         st.image(comeleclogo, width=110)
     st.title("Plurality-Preferential Voting System Program")
